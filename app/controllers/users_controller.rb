@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
+    @users = FindUsers.new(User.all).call(params)
 
     render json: @users
   end
